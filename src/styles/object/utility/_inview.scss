@@ -1,0 +1,54 @@
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+
+/*
+ * inviewプロパティに関するutilityのクラスです
+ */
+
+@mixin _from {
+  visibility: hidden;
+  opacity: 0;
+  // transition-timing-function: ease-opa-in, ease-opa-in, ease-trans-in;
+  transition-timing-function: var.$es-base;
+  transition-duration:
+    var(--transition-duration-opacity-in), var(--transition-duration-visibility-in),
+    var(--transition-duration-translate-in);
+  transition-property: opacity, visibility, transform;
+  transform: translate3d(0, func.cv-rem(30), 0);
+}
+
+@mixin _to {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.u-inview {
+  // basic
+  @include _from;
+
+  &.is-inview {
+    @include _to;
+  }
+}
+
+.u-inview-list {
+  &.is-inview {
+    .u-inview-list__item {
+      @include _to;
+    }
+  }
+}
+
+.u-inview-list__item {
+  @include _from;
+}
+
+.u-inview--parents {
+  @include _from;
+
+  .is-inview & {
+    @include _to;
+  }
+}

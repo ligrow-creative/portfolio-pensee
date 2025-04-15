@@ -1,0 +1,11 @@
+@use 'sass:math';
+
+$zero: 0;
+$base: 0.15em;
+$wide: 0.2em;
+$half: math.div($base, 2);
+$b2x: $base * 2;
+$b3x: $base * 3;
+$b4x: $base * 4;
+$b5x: $base * 5;
+$b6x: $base * 6;

@@ -1,0 +1,52 @@
+<%
+  const nav_lists = [
+    {
+      title_en: 'About',
+      title_ja: 'サロンについて',
+      link: 'about'
+    },
+    {
+      title_en: 'Style',
+      title_ja: 'スタイル',
+      link: 'style'
+    },
+    {
+      title_en: 'Price',
+      title_ja: '料金',
+      link: 'price'
+    },
+    {
+      title_en: 'Access',
+      title_ja: 'アクセス',
+      link: 'access'
+    },
+    {
+      title_en: 'Contact',
+      title_ja: 'お問い合わせ',
+      link: 'contact'
+    },
+  ];
+%>
+
+
+<section class="p-menu js-menu">
+  <div class="p-menu__inner l-inner">
+    <nav class="p-menu__nav">
+      <ul class="p-menu__lists">
+        <% nav_lists.forEach((item) => { %>
+          <li class="p-menu__item">
+            <a class="p-menu__link js-menu-link" href="#<%= item.link %>">
+              <span class="p-menu__item-en">
+                <%- f.insertImage(`${IMG_PATH}/header_txt_${item.link}_white.svg`, '',`${item.title_en}`); _%>
+              </span>
+              <span class="p-menu__item-ja"><%- item.title_ja; _%></span>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
+    </nav>
+    <h2 class="p-menu__logo">
+      <%- f.insertImage(`${IMG_PATH}/logo_white.svg`, 'p-menu__logo-svg', 'pensee'); _%>
+    </h2>
+  </div>
+</section>

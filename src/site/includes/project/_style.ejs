@@ -1,0 +1,36 @@
+<section class="p-style" id="style">
+  <div class="l-inner" >
+    <div class="js-inview u-inview">
+    <%- include('../component/_hdg.ejs',
+      {
+        text_en: 'STYLE',
+        text_ja: 'スタイル例',
+        addClass: 'left',
+        modifier: '--'
+      });
+    _%>
+    </div>
+    <div class="p-style__inner js-inview u-inview">
+      <div class="p-style__btns">
+        <button class="p-style__btn p-style__btn--prev"></button>
+        <span class="p-style__current-slide">1 / 5</span>
+        <button class="p-style__btn p-style__btn--next"></button>
+      </div>
+
+      <div class="swiper-container p-style__slider ">
+        <ul class="swiper-wrapper">
+          <% for (let i = 1; i <= 5; i++) { %>
+            <li class="p-style__item swiper-slide js-slider">
+              <%- f.insertImage(`${IMG_PATH}/style_item_${i}.webp`, 'pstyle__img', ''); %>
+            </li>
+          <% }; %>
+          <% for (let i = 1; i <= 5; i++) { %>
+            <li class="p-style__item swiper-slide js-slider">
+              <%- f.insertImage(`${IMG_PATH}/style_item_${i}.webp`, 'pstyle__img', ''); %>
+            </li>
+          <% }; %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

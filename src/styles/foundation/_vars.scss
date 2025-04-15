@@ -1,0 +1,19 @@
+@use 'sass:math';
+@use '../setting/variable' as var;
+@use '../tool/function' as func;
+@use '../tool/mixin' as mixin;
+
+:root {
+  // use -> height: calc(var(--vh, 1vh) * 100);
+  --vw: 1vw;
+  --vh: 1vh;
+  --vw-win: 1vw;
+  --vh-win: 1vh;
+  --vw-sp: 1vw;
+  --vh-sp: 1vh;
+  --scroll-bar: 0;
+
+  --transition-duration-opacity-in: 1.2s;
+  --transition-duration-visibility-in: 1.2s;
+  --transition-duration-translate-in: 1.4s;
+}

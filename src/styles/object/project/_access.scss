@@ -1,0 +1,194 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.p-access {
+  @include mixin.mq-pc {
+    padding-top: func.cv-rem(100);
+    padding-bottom: func.cv-rem(100);
+  }
+  @include mixin.mq-sp {
+    padding-top: func.cv-vw(60);
+    padding-bottom: func.cv-rem(60);
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__hdg {
+    @include mixin.mq-sp {
+      position: absolute;
+      top: 0;
+      left: func.cv-vw(15);
+    }
+  }
+
+  &__flex {
+    display: flex;
+    @include mixin.mq-pc {
+      justify-content: space-between;
+    }
+    @include mixin.mq-sp {
+      flex-direction: column-reverse;
+      justify-content: space-between;
+    }
+  }
+  &__info {
+    line-height: math.div(34, 18);
+    @include mixin.mq-pc {
+      flex-shrink: 0;
+      width: func.cv-rem(250);
+    }
+    @include mixin.mq-sp {
+      width: 100%;
+    }
+  }
+  &__map {
+    position: relative;
+    @include mixin.mq-pc {
+      width: func.cv-per(600, 1080);
+    }
+    @include mixin.mq-sp {
+      width: 100%;
+      height: func.cv-vw(300);
+      margin-top: func.cv-vw(130);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      filter: grayscale(60%);
+    }
+  }
+
+  &__adress {
+    position: relative;
+    padding-bottom: func.cv-rem(35);
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(100);
+    }
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(50);
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: func.cv-rem(50);
+      height: func.cv-rem(1);
+      content: '';
+      background-color: var.$c-txt;
+    }
+  }
+
+  &__adress-walk {
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(7);
+    }
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(7);
+    }
+  }
+
+  &__time {
+    position: relative;
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(35);
+      padding-bottom: func.cv-rem(35);
+    }
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(25);
+      padding-bottom: func.cv-vw(25);
+    }
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: func.cv-rem(50);
+      height: func.cv-rem(1);
+      content: '';
+      background-color: var.$c-txt;
+    }
+  }
+
+  &__time-inner {
+    display: flex;
+    dt {
+      padding-right: func.cv-rem(50);
+    }
+  }
+
+  &__tel {
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(35);
+    }
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(25);
+    }
+  }
+
+  &__btn {
+    height: func.cv-rem(50);
+    text-align: center;
+    border: 1px solid var.$c-txt;
+    @include mixin.mq-pc {
+      margin-top: func.cv-rem(50);
+    }
+    @include mixin.mq-sp {
+      margin-top: func.cv-vw(40);
+    }
+  }
+
+  &__btn-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: inline-block;
+      height: 1px;
+      content: '';
+      background-color: var.$c-txt;
+      @include mixin.mq-pc {
+        right: 15px;
+        width: 8px;
+      }
+      @include mixin.mq-sp {
+        right: func.cv-vw(15);
+        width: func.cv-vw(8);
+      }
+    }
+
+    &::before {
+      top: 44%;
+      transform: rotate(45deg);
+    }
+    &::after {
+      top: 56%;
+      transform: rotate(-45deg);
+    }
+
+    @include mixin.mq-hover {
+      transition-duration: 0.4s;
+      transition-property: background-color color;
+      &:hover {
+        color: var.$c-white;
+        background-color: var.$c-txt;
+      }
+      &:hover::before,
+      &:hover::after {
+        background-color: var.$c-white;
+      }
+    }
+  }
+}

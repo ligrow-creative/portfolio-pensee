@@ -1,0 +1,18 @@
+<%_
+/* include */
+let cls = typeof addClass !== 'undefined' ? `${addClass}` : '';
+let en = typeof text_en !== 'undefined' ? text_en : '';
+let enLower = en.toLowerCase(); // 小文字を別の変数に保存
+let ja = typeof text_ja !== 'undefined' ? text_ja : '';
+let mod = typeof modifier !== 'undefined' ? modifier : '';
+let color = typeof line_color !== 'undefined' ? line_color : '';
+_%>
+<div class="c-hdg c-hdg<%- mod + cls %>">
+  <h2 class="c-hdg__inner">
+    <span class="c-hdg__en">
+      <%- f.insertImage(`${IMG_PATH}/txt_${enLower}.svg`, '', `${en}`); _%>
+    </span>
+    <span class="c-hdg__ja"><%- ja _%></span>
+  </h2>
+  <span class="c-hdg__line c-hdg__line<%- mod + color %>"></span>
+</div>

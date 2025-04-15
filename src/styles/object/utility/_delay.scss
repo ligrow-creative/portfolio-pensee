@@ -1,0 +1,19 @@
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+
+@for $i from 1 through 30 {
+  .u-delay#{$i} {
+    transition-delay: $i * 0.08s;
+  }
+  .u-delay#{$i}--pc {
+    @include mixin.mq-pc {
+      transition-delay: $i * 0.08s;
+    }
+  }
+  .u-delay#{$i}--sp {
+    @include mixin.mq-sp {
+      transition-delay: $i * 0.08;
+    }
+  }
+}

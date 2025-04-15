@@ -1,0 +1,156 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.p-header {
+  position: absolute;
+  width: 100%;
+  @include mixin.mq-pc {
+    top: func.cv-rem(30);
+    padding-right: func.cv-rem(50);
+    padding-left: func.cv-rem(50);
+  }
+  @include mixin.mq-sp {
+    top: func.cv-vw(20);
+    padding-right: func.cv-vw(15);
+    padding-left: func.cv-vw(15);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__logo {
+    z-index: var.$z-positive;
+    @include mixin.mq-pc {
+      width: func.cv-rem(170);
+      height: auto;
+    }
+    @include mixin.mq-sp {
+      width: func.cv-vw(100);
+      height: auto;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__nav {
+    z-index: var.$z-positive;
+    @media screen and (min-width: 981px) {
+      padding-right: func.cv-rem(220);
+    }
+    @media screen and (max-width: 980px) {
+      display: none;
+    }
+  }
+  &__lists {
+    display: flex;
+    gap: func.cv-rem(35);
+    justify-content: space-between;
+  }
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mixin.mq-hover {
+      transition-duration: 0.3s;
+      transition-property: opacity;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+  &__item-ja {
+    padding-top: func.cv-rem(2);
+    font-family: var.$ff-noto-sans;
+    font-size: func.cv-rem(11);
+  }
+  &__item-en {
+    width: func.cv-rem(60);
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__reserve {
+    position: fixed;
+    z-index: var.$z-positive;
+    @media screen and (min-width: 981px) {
+      top: func.cv-rem(40);
+      right: func.cv-rem(40);
+    }
+    @media screen and (max-width: 980px) {
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      animation: fadein 0.6s ease forwards;
+      &.is-active {
+        display: block;
+        animation: fadeout 0.6s ease forwards;
+      }
+    }
+  }
+
+  &__reserve-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var.$c-white;
+    text-align: center;
+    box-shadow:
+      rgba(0, 0, 0, 0.2) 0px 1px 4px,
+      rgba(0, 0, 0, 0.3) 0px 2px 12px;
+    @media screen and (min-width: 981px) {
+      width: func.cv-rem(180);
+      padding: min(func.cv-vw(20), 15px);
+      background-color: rgba(var.$c-txt, 0.85);
+      border-radius: func.cv-rem(50);
+    }
+    @media screen and (max-width: 980px) {
+      width: 100%;
+      padding: min(func.cv-vw(15), 15px);
+      background-color: rgba(var.$c-txt, 0.9);
+      border-radius: func.cv-rem(25) func.cv-rem(25) 0 0;
+    }
+
+    @include mixin.mq-hover {
+      transition-duration: 0.4s;
+      &:hover {
+        background-color: rgba(var.$c-txt, 0.95);
+        transition-property: transform, background-color;
+        transform: scale(1.06);
+      }
+    }
+  }
+  &__reserve-ja {
+    display: block;
+    padding-top: func.cv-rem(5);
+    font-family: var.$ff-noto-sans;
+    font-size: min(func.cv-rem(11), 11px);
+  }
+
+  &__reserve-en {
+    display: block;
+    @media screen and (min-width: 981px) {
+      width: 100px;
+    }
+
+    @media screen and (max-width: 980px) {
+      width: min(func.cv-vw(100), 100px);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

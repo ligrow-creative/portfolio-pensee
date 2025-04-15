@@ -1,0 +1,21 @@
+@use '../setting/variable' as var;
+@use '../tool/function' as func;
+@use '../tool/mixin' as mixin;
+
+.l-inner {
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mixin.mq-pc {
+    width: 100%;
+    max-width: func.cv-rem(1180);
+    padding-right: func.cv-rem(50);
+    padding-left: func.cv-rem(50);
+  }
+
+  @include mixin.mq-sp {
+    width: 100%;
+    padding-right: func.cv-rem(15);
+    padding-left: func.cv-rem(15);
+  }
+}

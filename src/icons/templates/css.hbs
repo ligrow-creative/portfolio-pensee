@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: {{fontName}};
+	font-display: block;
+	src: {{unescape-double-quote src}};
+}
+
+{{#each outputCss as |item|}}
+.{{../classPrefix}}{{item.[0]}}{{#unless @last}},
+{{/unless}}{{#if @last}} {
+{{/if}}
+{{/each}}
+  display: inline-block;
+  font-family: {{fontName}};
+  font-style: normal;
+  font-weight: normal;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+{{#each outputCss as |item|}}
+.{{../classPrefix}}{{item.[0]}}::before {
+	content: "\\{{item.[1]}}";
+}
+{{/each}}

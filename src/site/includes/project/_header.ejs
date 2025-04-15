@@ -1,0 +1,62 @@
+<%
+  const nav_lists = [
+    {
+      title_en: 'About',
+      title_ja: 'サロンについて',
+      link: 'about'
+    },
+    {
+      title_en: 'Style',
+      title_ja: 'スタイル',
+      link: 'style'
+    },
+    {
+      title_en: 'Price',
+      title_ja: '料金',
+      link: 'price'
+    },
+    {
+      title_en: 'Access',
+      title_ja: 'アクセス',
+      link: 'access'
+    },
+    {
+      title_en: 'Contact',
+      title_ja: 'お問い合わせ',
+      link: 'contact'
+    },
+  ];
+%>
+
+<header class="p-header" id="header">
+  <div class="p-header__inner">
+    <div class="p-header__logo">
+      <a href="/">
+        <%- f.insertImage(`${IMG_PATH}/logo_black.svg`, 'p-header__logo-svg', 'Pensée Hair Design'); _%>
+      </a>
+    </div>
+    <nav class="p-header__nav">
+      <ul class="p-header__lists">
+        <% nav_lists.forEach((item) => { %>
+          <li class="p-header__item">
+            <a class="p-header__link" href="#<%= item.link %>">
+              <span class="p-header__item-en">
+                <%- f.insertImage(`${IMG_PATH}/header_txt_${item.link}.svg`, '',`${item.title_en}`); _%>
+              </span>
+              <span class="p-header__item-ja"><%- item.title_ja; _%></span>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
+    </nav>
+    <div class="p-header__reserve js-toggle-class">
+      <a href="#contact" class="p-header__reserve-link">
+        <span class="p-header__reserve-en">
+          <%- f.insertImage(`${IMG_PATH}/header_txt_reserve.svg`, '', 'RESERVE'); _%>
+        </span>
+        <span class="p-header__reserve-ja">ご予約はこちら</span>
+      </a>
+    </div>
+    <%- include('/component/_burger'); _%>
+  </div>
+</header>

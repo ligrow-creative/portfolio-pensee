@@ -1,0 +1,74 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.c-burger {
+  position: relative;
+  z-index: var.$z-header;
+  display: none;
+  @media screen and (max-width: 980px) {
+    position: fixed;
+    top: func.cv-vw(15);
+    right: func.cv-vw(15);
+    z-index: var.$z-header;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(func.cv-vw(54), 54px);
+    height: min(func.cv-vw(54), 54px);
+  }
+
+  &__box {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: min(func.cv-vw(35), 35px);
+    height: min(func.cv-vw(18), 18px);
+    .is-menu-open & {
+      width: min(func.cv-vw(28), 28px);
+      height: min(func.cv-vw(18), 18px);
+    }
+  }
+
+  &__line {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background-color: var.$c-txt;
+    border-radius: 3px;
+    box-shadow: 0 0 6px 0 rgba(var.$c-white, 0.7);
+    transition-duration: 0.5s;
+    transition-property: transform;
+    .is-menu-open & {
+      background-color: var.$c-white;
+    }
+
+    &--top {
+      top: 0;
+      .is-menu-open & {
+        top: 50%;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &--center {
+      top: 50%;
+      transform: translateY(-50%);
+      .is-menu-open & {
+        display: none;
+      }
+    }
+
+    &--bottom {
+      bottom: 0;
+      .is-menu-open & {
+        top: 50%;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

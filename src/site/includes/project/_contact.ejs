@@ -1,0 +1,43 @@
+<section class="p-contact js-toggle-class-target" id="contact">
+  <div class="p-contact__inner l-inner">
+    <div class="js-inview u-inview">
+      <%- include('../component/_hdg.ejs',
+      {
+        text_en: 'CONTACT',
+        text_ja: 'お問い合わせ',
+        addClass: 'center',
+        modifier: '--',
+        line_color: 'white'
+      });
+    _%>
+    </div>
+    <p class="p-contact__text js-inview u-inview">
+      当サロンは１名で営業しているため、<br class="u-dsp-sp">お客様対応中は電話に出られない場合がございます。<br>オンライン予約をおすすめいたします。
+    </p>
+    <div class="p-contact__links js-inview u-inview-list">
+      <div class="p-contact__links-item u-inview-list__item">
+        <div class="p-contact__online">
+          <a href="https://stekina.com/profile/K5W8-N62S?stype=lp"
+          target="_blank" class="p-contact__link">
+            <span class="p-contact__link-icon">
+              <%- f.insertImage(`${IMG_PATH}/contact_icon_web.svg`, '', ''); _%>
+            </span>
+            <span>オンライン予約</span>
+          </a>
+        </div>
+        <p class="p-contact__link-note">※予約用のサイトへリンクします</p>
+      </div>
+      <div class="p-contact__links-item u-inview-list__item u-delay1">
+        <div class="p-contact__tel">
+          <a href="tel:072845-5021" class="p-contact__link">
+            <span class="p-contact__link-icon">
+              <%- f.insertImage(`${IMG_PATH}/contact_icon_tel.svg`, '', ''); _%>
+            </span>
+            <span>072-845-5021</span>
+          </a>
+        </div>
+        <p class="p-contact__link-note">お電話からのお問い合わせはこちら</p>
+      </div>
+    </div>
+  </div>
+</section>

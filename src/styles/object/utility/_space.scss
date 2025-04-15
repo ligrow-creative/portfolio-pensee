@@ -1,0 +1,7 @@
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+
+.u-space {
+  letter-spacing: -0.05em;
+}

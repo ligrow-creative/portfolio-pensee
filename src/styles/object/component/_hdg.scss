@@ -1,0 +1,91 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.c-hdg {
+  $this: &;
+  position: relative;
+
+  &__inner {
+    .c-hdg--center & {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .c-hdg--right & {
+      text-align: right;
+    }
+  }
+
+  &__en {
+    display: block;
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(15);
+    }
+    @include mixin.mq-sp {
+      width: auto;
+      height: func.cv-vw(30);
+      padding-top: func.cv-vw(10);
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+
+  &__ja {
+    display: block;
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(15);
+      font-size: func.cv-rem(16);
+    }
+
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(10);
+      font-size: func.cv-vw(12);
+    }
+  }
+
+  &__line {
+    position: absolute;
+    display: block;
+    .c-hdg--center & {
+      left: 50%;
+      height: func.cv-rem(1);
+      background-color: var.$c-txt;
+      transform: translate(-50%, -50%);
+      @include mixin.mq-pc {
+        bottom: func.cv-rem(-45);
+        width: func.cv-rem(50);
+      }
+
+      @include mixin.mq-sp {
+        bottom: func.cv-rem(-30);
+        width: func.cv-vw(28);
+      }
+    }
+    .c-hdg--left & {
+      height: func.cv-rem(1);
+      background-color: var.$c-txt;
+      transform: rotate(-45deg);
+      transform-origin: right top;
+      @include mixin.mq-pc {
+        top: func.cv-rem(15);
+        left: func.cv-rem(100);
+        width: func.cv-rem(200);
+      }
+      @include mixin.mq-sp {
+        top: func.cv-vw(15);
+        left: func.cv-vw(70);
+        width: func.cv-vw(110);
+      }
+    }
+
+    &--white {
+      #contact & {
+        background-color: var.$c-white;
+      }
+    }
+  }
+}

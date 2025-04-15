@@ -1,0 +1,98 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.p-footer {
+  &__inner {
+    @include mixin.mq-pc {
+      display: flex;
+      padding-top: func.cv-rem(40);
+      padding-bottom: func.cv-rem(140);
+    }
+    @include mixin.mq-sp {
+      width: 100%;
+      padding-top: func.cv-vw(30);
+      padding-bottom: func.cv-vw(60);
+    }
+  }
+
+  &__logo {
+    @include mixin.mq-pc {
+      width: 50%;
+    }
+    @include mixin.mq-sp {
+      width: func.cv-vw(110);
+      margin-right: auto;
+      margin-left: auto;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    line-height: math.div(30, 16);
+    @include mixin.mq-pc {
+      gap: func.cv-rem(15);
+      width: 50%;
+    }
+    @include mixin.mq-sp {
+      width: 100%;
+      margin-top: func.cv-vw(45);
+      font-size: func.cv-vw(12);
+    }
+  }
+
+  &__time {
+    display: flex;
+    flex-direction: column;
+    @include mixin.mq-pc {
+      gap: func.cv-rem(40);
+    }
+    @include mixin.mq-sp {
+      gap: func.cv-vw(20);
+    }
+  }
+
+  &__copy {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var.$c-white;
+    text-align: center;
+    background-color: var.$c-bg-dark-gray;
+    @include mixin.mq-pc {
+      height: func.cv-rem(100);
+      font-size: func.cv-rem(12);
+    }
+    @include mixin.mq-sp {
+      height: func.cv-vw(50);
+      font-size: func.cv-vw(11);
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    @include mixin.mq-pc {
+      top: func.cv-rem(-40);
+      right: func.cv-rem(50);
+      width: func.cv-rem(80);
+    }
+    @include mixin.mq-sp {
+      top: func.cv-vw(-27);
+      right: func.cv-vw(15);
+      width: func.cv-vw(55);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

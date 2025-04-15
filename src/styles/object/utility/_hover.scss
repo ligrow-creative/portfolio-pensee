@@ -1,0 +1,20 @@
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+
+.u-hov-cursor {
+  @include mixin.mq-hover {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.u-hov-opacity {
+  transition: opacity 0.3s;
+  @include mixin.mq-hover {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

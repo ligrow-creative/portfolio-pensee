@@ -1,0 +1,15 @@
+    </main>
+    <div class="l-wrapper__footer">
+      <%- include('/project/_footer'); _%>
+    </div>
+  </div>
+  <%_ if(env === 'production'){ _%>
+  <script type="module" src="<%- `${RELATIVE_PATH}js/script.js`; _%>"></script>
+  <%_ } else { _%>
+  <script type="module" src="/@vite/client"></script>
+  <script type="module" src="/src/entry.ts"></script>
+  <%_ }; _%>
+  <script src="./assets/js/jquery-3.5.1.min.js"></script>
+  <script src="./assets/footer/js/script.js"></script>
+</body>
+</html>

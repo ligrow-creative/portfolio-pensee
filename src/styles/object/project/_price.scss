@@ -1,0 +1,101 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.p-price {
+  margin-top: func.cv-rem(-10);
+  overflow: hidden;
+  color: var.$c-white;
+  background-color: var.$c-bg-dark-gray;
+  @include mixin.mq-pc {
+    padding-bottom: func.cv-rem(200);
+  }
+  @include mixin.mq-sp {
+    padding-bottom: func.cv-vw(80);
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__container {
+    display: grid;
+    padding-top: func.cv-rem(50);
+    @include mixin.mq-pc {
+      grid-template-columns: repeat(2, 1fr);
+      gap: func.cv-rem(60);
+    }
+    @include mixin.mq-sp {
+      grid-template-rows: repeat(2, 1fr);
+      gap: func.cv-vw(80);
+    }
+  }
+
+  &__title {
+    @include mixin.mq-pc {
+      width: func.cv-rem(186);
+    }
+    @include mixin.mq-sp {
+      width: func.cv-vw(146);
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__lists {
+    @include mixin.mq-pc {
+      padding-left: func.cv-rem(45);
+    }
+  }
+
+  &__item {
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(30);
+    }
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(30);
+    }
+  }
+
+  &__item-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__item-price {
+    min-width: func.cv-rem(135);
+    padding-left: func.cv-rem(30);
+    text-align: right;
+    span {
+      font-size: func.cv-rem(12);
+    }
+  }
+
+  &__circle {
+    position: absolute;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    opacity: 0.45;
+    animation: rotate-z 25s linear infinite;
+    @include mixin.mq-pc {
+      right: func.cv-rem(-100);
+      bottom: func.cv-rem(-320);
+      width: func.cv-rem(400);
+    }
+    @include mixin.mq-sp {
+      right: func.cv-vw(-50);
+      bottom: func.cv-vw(-180);
+      width: func.cv-vw(250);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

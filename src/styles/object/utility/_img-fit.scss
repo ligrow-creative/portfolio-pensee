@@ -1,0 +1,10 @@
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+
+.u-img-fit {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+}

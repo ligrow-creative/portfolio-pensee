@@ -1,0 +1,69 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.p-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var.$z-positive;
+  display: none;
+  width: 100%;
+  height: 100svh;
+  color: var.$c-white;
+  background-color: rgba(var.$c-bg-dark-gray, 0.9);
+  animation-timing-function: cubic-bezier(0.13, 0.55, 0.14, 1.02);
+
+  .is-menu-open & {
+    animation-name: menuin;
+    animation-duration: 1s;
+  }
+
+  .is-menu-close & {
+    animation-name: menuout;
+    animation-duration: 1s;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
+  }
+
+  &__logo {
+    align-self: center;
+    width: func.cv-vw(120);
+    padding-top: func.cv-vw(20);
+    padding-bottom: func.cv-vw(50);
+    margin-top: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__nav {
+    padding-top: func.cv-vw(50);
+  }
+
+  &__item {
+    padding-top: func.cv-vw(20);
+    padding-bottom: func.cv-vw(10);
+    border-bottom: 1px solid rgba(var.$c-white, 0.4);
+  }
+
+  &__item-en {
+    display: block;
+    width: min(func.cv-vw(80), 100px);
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__item-ja {
+    font-size: min(func.cv-vw(12), 16px);
+  }
+}

@@ -1,0 +1,137 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.p-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var.$c-white;
+  text-align: center;
+  @include mixin.mq-pc {
+    height: func.cv-rem(620);
+    background: url('#{var.$u-img-path}contact_bg_pc.webp') no-repeat center top/cover;
+    border-radius: func.cv-rem(80) func.cv-rem(80) 0 0;
+  }
+  @include mixin.mq-sp {
+    aspect-ratio: 390/686;
+    background: url('#{var.$u-img-path}contact_bg_sp.webp') no-repeat center top/cover;
+    border-radius: func.cv-rem(50) func.cv-rem(50) 0 0;
+  }
+
+  &__text {
+    font-weight: bold;
+    line-height: math.div(34, 16);
+    letter-spacing: 0.1em;
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(100);
+    }
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(100);
+    }
+  }
+
+  &__links {
+    @include mixin.mq-pc {
+      display: flex;
+      gap: func.cv-vw(15);
+      justify-content: space-evenly;
+      padding-top: func.cv-rem(78);
+    }
+    @include mixin.mq-sp {
+      width: 100%;
+      padding-top: func.cv-vw(50);
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-weight: var.$fw-b;
+    text-align: center;
+    letter-spacing: 0.1em;
+    border: 1px solid var.$c-white;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: func.cv-rem(50);
+      display: inline-block;
+      width: func.cv-rem(30);
+      height: func.cv-rem(30);
+      content: '';
+      border: 1px solid var.$c-white;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: func.cv-rem(30);
+      display: inline-block;
+      width: func.cv-rem(36);
+      height: func.cv-rem(8);
+      content: '';
+      background: url('#{var.$u-img-path}contact_arrow.svg') no-repeat left top/cover;
+      transform-origin: left center;
+      animation: shrink 0.3s ease forwards;
+    }
+
+    @include mixin.mq-pc {
+      min-width: func.cv-rem(320);
+      padding: func.cv-rem(25) func.cv-rem(30);
+      border-radius: func.cv-rem(20);
+    }
+    @include mixin.mq-sp {
+      padding: func.cv-vw(20) func.cv-vw(30);
+      border-radius: func.cv-vw(15);
+    }
+
+    @include mixin.mq-hover {
+      &:hover::after {
+        animation: grow 0.3s ease forwards;
+      }
+    }
+  }
+
+  &__links-item {
+    @include mixin.mq-sp {
+      font-size: func.cv-vw(16);
+      &:last-child {
+        margin-top: func.cv-vw(40);
+      }
+    }
+  }
+
+  &__link-icon {
+    display: inline-block;
+    height: func.cv-rem(23);
+    @include mixin.mq-pc {
+      margin-right: func.cv-rem(30);
+    }
+    @include mixin.mq-sp {
+      margin-right: func.cv-vw(50);
+    }
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &__link-note {
+    letter-spacing: 0.1em;
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(20);
+    }
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(15);
+      font-size: func.cv-vw(14);
+    }
+  }
+}

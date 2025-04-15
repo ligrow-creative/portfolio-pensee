@@ -1,0 +1,6 @@
+.app/*
+dist/*
+node_modules/*
+static/*
+*.md
+package-lock.json

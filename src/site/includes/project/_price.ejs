@@ -1,0 +1,148 @@
+<%
+  const price_menu = [
+    {
+      title: 'レディースカット',
+      price: '5,000'
+    },
+    {
+      title: 'メンズカット',
+      price: '4,500'
+    },
+    {
+      title: 'フルカラー',
+      price: '7,000'
+    },
+    {
+      title: 'リタッチカラー',
+      price: '6,000'
+    },
+    {
+      title: '縮毛矯正',
+      price: '17,000'
+    },
+    {
+      title: '前髪縮毛矯正',
+      price: '7,000'
+    },
+    {
+      title: 'パーマ',
+      price: '7,000'
+    },
+    {
+      title: 'ポイントパーマ',
+      price: '5,000'
+    },
+    {
+      title: 'ブリーチ',
+      price: '7,000'
+    },
+    {
+      title: 'インナーブリーチ',
+      price: '5,000'
+    },
+    {
+      title: 'Penséeトリートメント',
+      price: '5,000'
+    },
+    {
+      title: '髪質改善トリートメント',
+      price: '7,000'
+    },
+  ];
+  const price_set = [
+    {
+      title: 'カットフルカラー',
+      price: '11,000'
+    },
+    {
+      title: 'カットリタッチカラー',
+      price: '9,900'
+    },
+    {
+      title: 'カット縮毛矯正',
+      price: '19,800'
+    },
+    {
+      title: 'カット前髪矯正',
+      price: '11,000'
+    },
+    {
+      title: 'カットパーマ',
+      price: '11,000'
+    },
+    {
+      title: 'メンズカットパーマ',
+      price: '9,900'
+    },
+    {
+      title: 'カットフルカラーPenséeトリートメント',
+      price: '16,000'
+    },
+    {
+      title: 'カットフルカラー髪質改善トリートメント',
+      price: '18,000'
+    }
+  ];
+%>
+
+<section class="p-price" id="price">
+  <div class="p-price__inner l-inner">
+    <div class="js-inview u-inview">
+    <%- include('../component/_hdg.ejs',
+      {
+        text_en: 'PRICE',
+        text_ja: '料金',
+        addClass: 'right',
+        modifier: '--'
+      });
+    _%>
+    </div>
+    <div class="p-price__container">
+      <div class="p-price__box u-inview js-inview">
+        <h3 class="p-price__title">
+          <%- f.insertImage(`${IMG_PATH}/price_txt_menu.svg`, '', 'menu'); _%>
+        </h3>
+        <ul class="p-price__lists">
+          <% price_menu.forEach((item) => { %>
+            <li class="p-price__item">
+              <dl class="p-price__item-inner">
+                <dt class="p-price__item-title">
+                  <%- item.title; _%>
+                </dt>
+                <dd class="p-price__item-price">
+                  <%- item.price; _%>円
+                  <span>(税込)</span>
+                </dd>
+              </dl>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+      <div class="p-price__box u-inview js-inview u-delay1--pc">
+        <h3 class="p-price__title">
+          <%- f.insertImage(`${IMG_PATH}/price_txt_setmenu.svg`, '', 'set menu'); _%>
+        </h3>
+        <ul class="p-price__lists">
+          <% price_set.forEach((item) => { %>
+            <li class="p-price__item">
+              <dl class="p-price__item-inner">
+                <dt class="p-price__item-title">
+                  <%- item.title; _%>
+                </dt>
+                <dd class="p-price__item-price">
+                  <%- item.price; _%>円
+                  <span>(税込)</span>
+                </dd>
+              </dl>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+    <div class="p-price__circle">
+      <%- f.insertImage(`${IMG_PATH}/price_circle.svg`, '', ''); _%>
+    </div>
+  </div>
+
+
+</section>

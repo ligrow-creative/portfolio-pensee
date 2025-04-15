@@ -1,0 +1,15 @@
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+
+.u-dsp-sp {
+  @include mixin.mq-pc {
+    display: none !important;
+  }
+}
+
+.u-dsp-pc {
+  @include mixin.mq-sp {
+    display: none !important;
+  }
+}

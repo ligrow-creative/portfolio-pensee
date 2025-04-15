@@ -1,0 +1,11 @@
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+
+.u-slideup {
+  overflow: hidden;
+  animation-name: slideup;
+  animation-duration: 0.5s;
+  animation-timing-function: var.$es-base;
+  animation-fill-mode: both;
+}

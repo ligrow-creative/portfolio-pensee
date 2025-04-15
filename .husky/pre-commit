@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# nodenv 経由の npm にパスを通す
+/Users/ykuehr/.anyenv/envs/nodenv/shims/npm run lint-staged
+
+

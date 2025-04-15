@@ -1,0 +1,60 @@
+@use 'sass:math';
+@use '../setting/variable' as var;
+@use '../tool/function' as func;
+@use '../tool/mixin' as mixin;
+
+html {
+  line-break: normal;
+  text-underline-position: under;
+  overflow-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-gutter: stable;
+
+  &:focus-within {
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @include mixin.mq-pc {
+    font-size: math.div(var.$fz-root * 100, 16) * 1%;
+  }
+
+  @include mixin.mq-sp {
+    font-size: func.cv-vw(var.$fz-root);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var.$ff-regular;
+  font-weight: var.$fw-r;
+  font-feature-settings: 'palt' 1;
+  line-height: 1.2;
+  color: var.$c-txt;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: unset;
+  background-color: var.$c-bg-light-gray;
+  @media (min-resolution: 1.5dppx) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @include mixin.mq-pc {
+    font-size: func.cv-rem(var.$fz-body-pc);
+  }
+
+  @include mixin.mq-sp {
+    font-size: func.cv-rem(var.$fz-body-sp);
+  }
+
+  ::selection {
+    color: var.$c-white;
+    background-color: rgba(var.$c-black, 0.8);
+  }
+}

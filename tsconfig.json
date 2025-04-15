@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "Node",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+		"allowJs": true,
+    "skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "paths": {
+      "~/*": ["./src/scripts/*"],
+      "~": ["./src/scripts/"]
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/scripts/@types",
+    ]
+  },
+  "include": [
+    "./src",
+    ".eslintrc.cjs",
+    ".stylelint.cjs",
+    "project.config.js",
+    "eleventy.config.cjs",
+    "vite.config.mjs",
+    "./tasks/**/*",
+    "env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}

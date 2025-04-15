@@ -1,0 +1,20 @@
+@use '../../setting/variable/color' as c;
+@use 'utilities' as mixin;
+@use 'media' as mq;
+
+@mixin alpha($opacity: 0.7, $trigger: self) {
+  @include mq.pc {
+    @include mixin.transition(0.3s, opacity);
+
+    @if $trigger == self {
+      &:hover {
+        opacity: $opacity;
+      }
+    }
+    @if $trigger == parent {
+      a:hover & {
+        opacity: $opacity;
+      }
+    }
+  }
+}

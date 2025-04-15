@@ -1,0 +1,77 @@
+@use 'sass:math';
+@use '../../setting/variable' as var;
+@use '../../tool/function' as func;
+@use '../../tool/mixin' as mixin;
+@use 'sass:list';
+
+.p-about {
+  text-align: center;
+  @include mixin.mq-pc {
+    padding-top: func.cv-rem(60);
+    padding-bottom: func.cv-rem(120);
+  }
+  @include mixin.mq-sp {
+    padding-top: func.cv-vw(40);
+    padding-bottom: func.cv-vw(80);
+  }
+
+  &__detail {
+    @include mixin.mq-pc {
+      padding-top: func.cv-rem(70);
+    }
+
+    @include mixin.mq-sp {
+      padding-top: func.cv-vw(35);
+    }
+  }
+
+  &__text {
+    line-height: math.div(40, 18);
+
+    span {
+      position: relative;
+      @include mixin.mq-pc {
+        font-size: func.cv-rem(28);
+      }
+
+      @include mixin.mq-sp {
+        font-size: func.cv-vw(20);
+      }
+
+      &::before {
+        position: absolute;
+        left: 0;
+        z-index: var.$z-negative;
+        display: inline-block;
+        width: 100%;
+        content: '';
+        background-color: rgba(#ebe2bd, 0.6);
+        @include mixin.mq-pc {
+          bottom: func.cv-rem(-3);
+          height: func.cv-rem(12);
+        }
+        @include mixin.mq-sp {
+          bottom: func.cv-vw(-2);
+          height: func.cv-vw(8);
+        }
+      }
+    }
+    &:first-child {
+      @include mixin.mq-pc {
+        padding-top: func.cv-rem(58);
+      }
+      @include mixin.mq-sp {
+        padding-top: func.cv-vw(40);
+      }
+    }
+
+    &:last-child {
+      @include mixin.mq-pc {
+        padding-top: func.cv-rem(58);
+      }
+      @include mixin.mq-sp {
+        padding-top: func.cv-vw(40);
+      }
+    }
+  }
+}
