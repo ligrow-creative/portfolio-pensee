@@ -23,44 +23,6 @@ https://pensee-hairdesign.com
 - Node.js: `v22.8.0`
 - パッケージマネージャ: `npm`
 
-
-## 🗂 ディレクトリ構成
-
-pensee-hair-design/
-├── certs/                
-├── dist/                  
-├── src/
-│   ├── icons/            
-│   ├── images/           
-│   ├── scripts/          
-│   ├── site/             
-│       ├── data/
-│       ├── includes/
-│       └── pages/
-│   ├── styles/           
-│       ├── foundation/
-│       ├── layout/
-│       ├── object/
-│       ├── setting/
-│       ├── tool/
-│       └── style.scss
-│   ├── svg/             
-│   ├── entry.ts          
-│   ├── vite-env.d.ts     
-├── static/         
-│       └── root/
-│           └── images/
-├── tasks/                  
-├── eleventy.config.cjs  
-├── env.d.ts              
-├── lint-staged.config.mjs
-├── package-lock.json
-├── package.json
-├── README.md
-├── tsconfig.json         
-└── vite.config.mjs      
-
-
 ## 🛠 開発環境のセットアップ
 
 ### 1.ローカル環境用の証明書発行
