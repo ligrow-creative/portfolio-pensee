@@ -20,20 +20,28 @@ https://pensee-hairdesign.com
 
 ### 開発環境
 
-- Node.js: `v22.8.0`
+- Node.js: `v20.9.0`
 - パッケージマネージャ: `npm`
 
 
 ## 🗂 ディレクトリ構成
 
 ```bash
-pensee-hair-design/
+portfolio-pensee/
+├── husky/       
 ├── certs/                
-├── dist/                  
 ├── src/
 │   ├── icons/            
 │   ├── images/           
-│   ├── scripts/          
+│   ├── scripts/  
+│       ├── @types/
+│       ├── abstracts/
+│       ├── constants/
+│       ├── foundation/
+│       ├── globals/
+│       ├── helper/
+│       ├── modules/
+│       └── index.ts/
 │   ├── site/             
 │       ├── data/
 │       ├── includes/
@@ -47,16 +55,26 @@ pensee-hair-design/
 │       └── style.scss
 │   ├── svg/             
 │   ├── entry.ts          
-│   ├── vite-env.d.ts     
+│   └── vite-env.d.ts     
 ├── static/         
 │       └── root/
 │           └── images/
-├── tasks/                  
+├── .editorconfig 
+├── .env.example
+├── .eslintignore
+├── .eslintrc.cjs     
+├── .gitignore
+├── .node-version
+├── .npmrc
+├── .prettierignore
+├── .prettierrc
+├── .stylelintrc.cjs
 ├── eleventy.config.cjs  
 ├── env.d.ts              
 ├── lint-staged.config.mjs
 ├── package-lock.json
 ├── package.json
+├── project.config.js
 ├── README.md
 ├── tsconfig.json         
 └── vite.config.mjs      
@@ -64,14 +82,19 @@ pensee-hair-design/
 
 ## 🛠 開発環境のセットアップ
 
-### 1.ローカル環境用の証明書発行
-
-ローカル用SSL証明書の発行（初回のみ）
+### 1.ローカル環境用の証明書発行（初回のみ）
 
 ```bash
+# 証明書ディレクトリへ移動
 cd certs
-brew install mkcert # mkcertが未インストールの場合
-mkcert -install # mkcertが未インストールの場合
+
+# mkcertをインストール（未インストール時のみ）
+brew install mkcert 
+
+# ルートCAをインストール（初回のみ必要、作成済ならスキップされます）
+mkcert -install 
+
+# localhost 用の証明書を生成
 mkcert -cert-file ./localhost.crt.pem -key-file ./localhost.key.pem localhost
 ```
 
@@ -97,5 +120,4 @@ npm run dev
 | :--------------------- | :---------------------------------------|
 | `npm run dev`          | start local dev server                  |
 | `npm run build`        | production build for delivery           |
-| `npm run preview`      | production build for preview up         |
 ```
